@@ -1,6 +1,6 @@
 {
   "name": "redgifs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Easy getting video-file url by page on redgifs.com ",
   "main": "index.js",
   "scripts": {
