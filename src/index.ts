@@ -1,9 +1,9 @@
-const webdriver = require("selenium-webdriver");
-const chrome = require("selenium-webdriver/chrome");
-require("chromedriver");
+import * as webdriver from "selenium-webdriver";
+import * as chrome from "selenium-webdriver/chrome";
+import("chromedriver");
 
-let options = new chrome.Options();
-//Below arguments are critical for Heroku deployment
+const options: chrome.Options = new chrome.Options();
+// Below arguments are critical for Heroku deployment
 options.addArguments("--no-sandbox");
 options.addArguments("--disable-infobars");
 options.addArguments("--disable-dev-shm-usage");
@@ -11,22 +11,20 @@ options.addArguments("--headless");
 options.addArguments("--disable-gpu");
 
 const Redgifs = class {
-	getRedgifsVideo(url) {
-		console.log(url);
-		return new Promise(function(resolve, reject) {
-			let driver = new webdriver.Builder().forBrowser("chrome").setChromeOptions(options).build();
+	getRedgifsVideo(url: string) {
+		return new Promise((resolve, reject) => {
+			const driver = new webdriver.Builder().forBrowser("chrome").setChromeOptions(options).build();
 
 			driver.get(url);
 			driver
 				.wait(webdriver.until.elementLocated(webdriver.By.css("video source:first-child")), 20000)
-				.then((el) => {
+				.then((el: any) => {
 					setTimeout(() => {
 						driver.quit();
 					}, 100);
 					resolve(el.getAttribute("src"));
 				})
-				.catch((err) => {
-					console.log("redgifs error: " + err);
+				.catch((err: string) => {
 					reject(err);
 				});
 		});

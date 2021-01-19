@@ -1,8 +1,8 @@
 
 # Redgifs
 
-The library getting videofile's url by redgifs page. 
-You have to put an page's url and the library will return a link to .mp4 file
+The library retrieves redgifs video file url from each page.
+Putting a page’s url will result in the library returning a link to an .mp4 file
 
 !IMPORTANT!
 
@@ -26,6 +26,11 @@ const r = new Redgifs();
 r.getRedgifsVideo("https://www.redgifs.com/watch/decisivebestbettong")
 	.then((videoFileUrl) => console.log(videoFileUrl))
 	.catch(console.log);
+```
+
+## Tests
+```
+npm run test
 ```
 
 ## Contributing
