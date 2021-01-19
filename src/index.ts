@@ -1,8 +1,8 @@
-import * as webdriver from "selenium-webdriver";
-import * as chrome from "selenium-webdriver/chrome";
-import("chromedriver");
+const webdriver = require("selenium-webdriver");
+const chrome = require("selenium-webdriver/chrome");
+require("chromedriver");
 
-const options: chrome.Options = new chrome.Options();
+let options = new chrome.Options();
 // Below arguments are critical for Heroku deployment
 options.addArguments("--no-sandbox");
 options.addArguments("--disable-infobars");
