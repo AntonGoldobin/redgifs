@@ -1,8 +1,8 @@
 
 # Redgifs
 
-The library getting any video files url by Redgifs pages. 
-You have to put an url on the page that you need and the library will return a link to .mp4 file
+The library getting videofile's url by redgifs page. 
+You have to put an page's url and the library will return a link to .mp4 file
 
 !IMPORTANT!
 
@@ -23,8 +23,7 @@ const Redgifs = require("redgifs");
 
 const r = new Redgifs();
 
-r
-	.getRedgifsVideo("https://www.redgifs.com/watch/decisivebestbettong")
+r.getRedgifsVideo("https://www.redgifs.com/watch/decisivebestbettong")
 	.then((videoFileUrl) => console.log(videoFileUrl))
 	.catch(console.log);
 ```
