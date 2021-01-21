@@ -10,18 +10,10 @@ options.addArguments("--disable-dev-shm-usage");
 options.addArguments("--headless");
 options.addArguments("--disable-gpu");
 
-let chromeCapabilities = webdriver.Capabilities.chrome();
-chromeCapabilities.set("chromeOptions", chrome);
-chromeCapabilities.setPageLoadStrategy("normal");
-
 const Redgifs = class {
 	getRedgifsVideo(url: string): Promise<string> {
 		return new Promise((resolve, reject) => {
-			const driver = new webdriver.Builder()
-				.forBrowser("chrome")
-				.withCapabilities(chromeCapabilities)
-				.setChromeOptions(options)
-				.build();
+			const driver = new webdriver.Builder().forBrowser("chrome").setChromeOptions(options).build();
 
 			driver.get(url);
 			driver
