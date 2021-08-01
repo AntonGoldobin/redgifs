@@ -12,11 +12,11 @@ options.addArguments("--disable-gpu");
 
 const Redgifs = class {
 	getRedgifsVideo(url: string): Promise<string> {
-		return new Promise((resolve, reject) => {
-			const driver = new webdriver.Builder().forBrowser("chrome").setChromeOptions(options).build();
+		return new Promise(async (resolve, reject) => {
+			const driver = await new webdriver.Builder().forBrowser("chrome").setChromeOptions(options).build();
 
-			driver.get(url);
-			driver
+			await driver.get(url);
+			await driver
 				.wait(webdriver.until.elementLocated(webdriver.By.css("video source:first-child")), 20000)
 				.then((el: any) => {
 					setTimeout(() => {
